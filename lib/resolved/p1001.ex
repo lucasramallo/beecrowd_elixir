@@ -7,8 +7,7 @@ defmodule Main do
   end
 
   def sum({:ok, values}) do
-    a = Enum.at(values, 0)
-    b = Enum.at(values, 1)
+    [a, b] = values
     a = String.to_integer(a)
     b = String.to_integer(b)
     x = a + b
