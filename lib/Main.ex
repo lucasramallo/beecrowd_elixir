@@ -1,21 +1,21 @@
 defmodule Main do
   def main() do
-    a = IO.gets("") |> String.replace("\n", "")
-    b = IO.gets("") |> String.replace("\n", "")
+    a = IO.gets("A > ")
+      |> String.replace("\n", "")
+      |> String.to_integer()
+
+    b = IO.gets("B > ")
+      |> String.replace("\n", "")
+      |> String.to_integer()
 
     sum({:ok, [a, b]})
   end
 
   def sum({:ok, values}) do
-    a = Enum.at(values, 0)
-    b = Enum.at(values, 1)
-    a = String.to_integer(a)
-    b = String.to_integer(b)
+    [a, b] = values
     x = a + b
     IO.puts("X = #{x}")
   end
-
-  def sum({:error, reason}), do: {:error, reason}
 end
 
 Main.main()
